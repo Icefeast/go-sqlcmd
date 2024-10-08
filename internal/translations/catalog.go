@@ -260,7 +260,7 @@ var messageKeyToIndex = map[string]int{
 	"Special character set to include in password":                            170,
 	"Specifies that all output files are encoded with little-endian Unicode":  258,
 	"Specifies that sqlcmd exits and returns a %s value when an error occurs": 255,
-	"Specifies the SQL authentication method to use to connect to Azure SQL Database. One of: ActiveDirectoryDefault, ActiveDirectoryIntegrated, ActiveDirectoryPassword, ActiveDirectoryInteractive, ActiveDirectoryManagedIdentity, ActiveDirectoryServicePrincipal, ActiveDirectoryAzCli, ActiveDirectoryDeviceCode, SqlPassword": 243,
+	"Specifies the SQL authentication method to use to connect to Azure SQL Database. One of: ActiveDirectoryDefault, ActiveDirectoryIntegrated, ActiveDirectoryPassword, ActiveDirectoryInteractive, ActiveDirectoryManagedIdentity, ActiveDirectoryWorkloadlIdentity, ActiveDirectoryServicePrincipal, ActiveDirectoryAzCli, ActiveDirectoryDeviceCode, SqlPassword": 243,
 	"Specifies the batch terminator. The default value is %s":         237,
 	"Specifies the column separator character. Sets the %s variable.": 259,
 	"Specifies the formatting for results":                            252,

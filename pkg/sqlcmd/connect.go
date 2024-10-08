@@ -108,6 +108,9 @@ func (connect ConnectSettings) ConnectionString() (connectionString string, err 
 	if (connect.authenticationMethod() == azuread.ActiveDirectoryMSI || connect.authenticationMethod() == azuread.ActiveDirectoryManagedIdentity) && connect.UserName != "" {
 		connectionURL.User = url.UserPassword(connect.UserName, connect.Password)
 	}
+	if (connect.authenticationMethod() == azuread.ActiveDirectoryWorkloadIdentity) && connect.UserName != "" {
+		connectionURL.User = url.UserPassword(connect.UserName, connect.Password)
+	}
 
 	if strings.HasPrefix(serverName, `\\`) {
 		// passing a pipe name of the format \\server\pipe\<pipename>

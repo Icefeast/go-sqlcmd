@@ -491,6 +491,8 @@ func TestConditionsForPasswordPrompt(t *testing.T) {
 		{azuread.ActiveDirectoryInteractive, []string{"testdata/someFile.sql"}, "someuser", "", false},
 		{azuread.ActiveDirectoryManagedIdentity, []string{""}, "someuser", "", false},
 		{azuread.ActiveDirectoryManagedIdentity, []string{"testdata/someFile.sql"}, "someuser", "", false},
+		{azuread.ActiveDirectoryWorkloadIdentity, []string{""}, "someuser", "", false},
+		{azuread.ActiveDirectoryWorkloadIdentity, []string{"testdata/someFile.sql"}, "someuser", "", false},
 	}
 
 	for _, testcase := range tests {

@@ -150,7 +150,7 @@ switches are most important to you to have implemented next in the new sqlcmd.
 ### Miscellaneous enhancements
 
 - Console output coloring (see below)
-- `:Connect` now has an optional `-G` parameter to select one of the authentication methods for Azure SQL Database  - `SqlAuthentication`, `ActiveDirectoryDefault`, `ActiveDirectoryIntegrated`, `ActiveDirectoryServicePrincipal`, `ActiveDirectoryManagedIdentity`, `ActiveDirectoryPassword`. If `-G` is not provided, either Integrated security or SQL Authentication will be used, dependent on the presence of a `-U` username parameter.
+- `:Connect` now has an optional `-G` parameter to select one of the authentication methods for Azure SQL Database  - `SqlAuthentication`, `ActiveDirectoryDefault`, `ActiveDirectoryIntegrated`, `ActiveDirectoryServicePrincipal`,  `ActiveDirectoryManagedIdentity`, `ActiveDirectoryWorkloadlIdentity`, `ActiveDirectoryPassword`. If `-G` is not provided, either Integrated security or SQL Authentication will be used, dependent on the presence of a `-U` username parameter.
 - The new `--driver-logging-level` command line parameter allows you to see traces from the `go-mssqldb` client driver. Use `64` to see all traces.
 - Sqlcmd can now print results using a vertical format. Use the new `-F vertical` command line option to set it. It's also controlled by the `SQLCMDFORMAT` scripting variable.
 
@@ -213,6 +213,15 @@ This method will launch a web browser to authenticate the user.
 `ActiveDirectoryManagedIdentity`
 
 Use this method when running sqlcmd on an Azure VM that has either a system-assigned or user-assigned managed identity. If using a user-assigned managed identity, set the username to the ID of the managed identity. If using a system-assigned identity, leave username empty.
+
+`ActiveDirectoryWorkloadIdentity`
+
+This method is used for authenticating applications running on Azure Kubernetes Service (AKS) or other environments that support workload identity federation. It allows the application to obtain tokens from Azure AD without needing to manage secrets.
+
+To configure this method, set the following environment variables:
+- `AZURE_CLIENT_ID` - The client ID of the Azure AD application.
+- `AZURE_TENANT_ID` - The tenant ID of the Azure AD application.
+- `AZURE_FEDERATED_TOKEN_FILE` - The path to the token file provided by the workload identity provider.
 
 `ActiveDirectoryServicePrincipal`
 

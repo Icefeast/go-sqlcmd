@@ -89,3 +89,6 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gotest.tools/v3 v3.4.0 // indirect
 )
+replace (
+	golang.org/x/crypto v0.28.0 => golang.org/x/crypto v0.31.0	
+)
